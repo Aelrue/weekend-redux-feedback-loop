@@ -5,9 +5,9 @@ import { useState, useEffect } from "react";
 function FeelingsForm() {
   const [feeling, setFeeling] = useState(0);
 
-  //   const dispatch = useDispatch();
-  //   const handleSubmit = (event) => {
-  //     event.preventDefault();
+  // const dispatch = useDispatch();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
 
   //     dispatch({
   //       type: "ADD_FEELING",
@@ -30,6 +30,7 @@ function FeelingsForm() {
           value={feeling}
           onChange={(event) => setFeeling(event.target.value)}
         />
+        <button>Next</button>
       </form>
     </>
   );
