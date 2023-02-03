@@ -13,6 +13,8 @@ import UnderstandingForm from "../Understanding/Understanding";
 import SupportForm from "../Support/Support";
 
 function App() {
+  const history = useHistory();
+
   return (
     <Router>
       <div className="App">

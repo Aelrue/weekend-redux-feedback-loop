@@ -1,38 +1,46 @@
 import { useHistory } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 function FeelingsForm() {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const [feeling, setFeeling] = useState(0);
 
-  // const dispatch = useDispatch();
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
+  const handleSubmit = (event) => {
+    if (feeling === 0) {
+      alert("Please choose a number 1-5");
+      return;
+    }
 
-  //     dispatch({
-  //       type: "ADD_FEELING",
-  //       payload: { feeling },
-  //     });
-  //   };
+    event.preventDefault();
+    setFeeling();
+
+    dispatch({
+      type: "ADD_FEELING",
+      payload: { feeling },
+    });
+    history.push("/understanding");
+  };
+
   return (
-    <>
-      <h1>
-        How are you feeling today? 0 being the lowest and 5 being the highest
-      </h1>
-      {/* <form onSubmit={handleSubmit()}> */}
+    <div>
+      <h2>
+        How are you feeling today? 1 being the lowest and 5 being the highest
+      </h2>
       <form>
         <input
           required
           placeholder="feeling"
           type="number"
-          min="0"
+          min="1"
           max="5"
           value={feeling}
           onChange={(event) => setFeeling(event.target.value)}
         />
-        <button>Next</button>
+        <button onClick={handleSubmit}>Next</button>
       </form>
-    </>
+    </div>
   );
 }
 export default FeelingsForm;
