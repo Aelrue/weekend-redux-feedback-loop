@@ -11,6 +11,8 @@ import {
 import FeelingsForm from "../Feelings/Feelings";
 import UnderstandingForm from "../Understanding/Understanding";
 import SupportForm from "../Support/Support";
+import CommentsForm from "../Comments/Comments";
+import Review from "../Review/Review";
 
 function App() {
   const history = useHistory();
@@ -31,6 +33,9 @@ function App() {
         </Route>
         <Route path="/Support">
           <SupportForm />
+        </Route>
+        <Route path="/Comments">
+          <CommentsForm />
         </Route>
       </div>
     </Router>

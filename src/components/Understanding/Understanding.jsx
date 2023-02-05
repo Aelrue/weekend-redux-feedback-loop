@@ -29,18 +29,18 @@ function UnderstandingForm() {
         How well did you understand this week's topics? 1 being the lowest and 5
         being the highest
       </h2>
-      <form>
-        <input
-          required
-          placeholder="understanding"
-          type="number"
-          min="1"
-          max="5"
-          value={understanding}
-          onChange={(event) => setUnderstanding(event.target.value)}
-        />
-        <button onClick={handleSubmit}>Next</button>
-      </form>
+      {/* <form> */}
+      <input
+        required
+        placeholder="understanding"
+        type="number"
+        min="1"
+        max="5"
+        value={understanding}
+        onChange={(event) => setUnderstanding(event.target.value)}
+      />
+      <button onClick={handleSubmit}>Next</button>
+      {/* </form> */}
     </div>
   );
 }
