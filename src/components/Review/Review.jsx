@@ -1,7 +1,12 @@
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import axios from "axios";
+import {
+  HashRouter as Router,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 
 function Review() {
   const history = useHistory();
@@ -40,12 +45,12 @@ function Review() {
     <>
       <div>
         <h1>Feedback Review</h1>
-        <ul>
-          <li>Feeling: {feelingReducer}</li>
-          <li>Understanding: {understandingReducer}</li>
-          <li>Support: {supportReducer}</li>
-          <li>Comments: {commentReducer}</li>
-        </ul>
+
+        <p>Feeling: {feelingReducer}</p>
+        <p>Understanding: {understandingReducer}</p>
+        <p>Support: {supportReducer}</p>
+        <p>Comments: {commentReducer}</p>
+
         <button onClick={submitFeedback}>Submit Feedback</button>
       </div>
     </>
