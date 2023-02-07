@@ -13,6 +13,7 @@ import UnderstandingForm from "../Understanding/Understanding";
 import SupportForm from "../Support/Support";
 import CommentsForm from "../Comments/Comments";
 import Review from "../Review/Review";
+import Submitted from "../Submitted/Submitted";
 
 function App() {
   const history = useHistory();
@@ -36,6 +37,12 @@ function App() {
         </Route>
         <Route path="/Comments">
           <CommentsForm />
+        </Route>
+        <Route path="/Review">
+          <Review />
+        </Route>
+        <Route path="/Submitted">
+          <Submitted />
         </Route>
       </div>
     </Router>

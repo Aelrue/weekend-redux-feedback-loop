@@ -7,27 +7,54 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import { Provider } from "react-redux";
 
-// reducers
+// reducers that will return new state following the action
 
-const reviewR = (state = { feeling: 0 }, action) => {
+const feelingR = (state = "", action) => {
   if (action.type === "ADD_FEELING") {
     const { feeling } = action.payload;
-    return { ...state, feeling: feeling };
+    return feeling;
   }
   return state;
 };
 
-// store
+const understandingR = (state = "", action) => {
+  if (action.type === "ADD_UNDERSTANDING") {
+    const { understanding } = action.payload;
+    return understanding;
+  }
+  return state;
+};
+
+const supportR = (state = "", action) => {
+  if (action.type === "ADD_SUPPORT") {
+    const { support } = action.payload;
+    return support;
+  }
+  return state;
+};
+
+const commentR = (state = { comment: "" }, action) => {
+  if (action.type === "ADD_COMMENT") {
+    const { comment } = action.payload;
+    return comment;
+  }
+  return state;
+};
+
+// store which holds the state
 
 const storeInstance = createStore(
   combineReducers({
-    reviewR,
+    feelingR,
+    understandingR,
+    supportR,
+    commentR,
   }),
-  // reducer
+
   applyMiddleware(logger)
 );
 
-// provider
+// provider that allows us to pass the store as an attribute
 
 ReactDOM.render(
   <React.StrictMode>
