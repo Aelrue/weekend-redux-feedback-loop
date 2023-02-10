@@ -18,20 +18,29 @@ router.get("/", (req, res) => {
       res.sendStatus(500);
     });
 });
+
 // post feedback
 router.post("/", (req, res) => {
-  console.log("In POST route", req.body);
-
   // post all feedback to database
   const queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments") VALUES ($1, $2, $3, $4)`;
-  const values = [
-    req.body.feeling,
-    req.body.understanding,
-    re.body.support,
-    req.body.comments,
-  ];
+  const feedback = req.body;
+  console.log(req.body);
+  /* 
+  feedback =
+  {
+  feelingReducer: '1',
+  understandingReducer: '1',
+  supportReducer: '1',
+  commentReducer: 'Hey'
+}
+  */
   pool
-    .query(queryText, values)
+    .query(queryText, [
+      feedback.feelingReducer,
+      feedback.understandingReducer,
+      feedback.supportReducer,
+      feedback.commentReducer,
+    ])
     .then((result) => {
       res.sendStatus(201);
     })
