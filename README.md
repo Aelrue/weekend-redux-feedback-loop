@@ -8,7 +8,7 @@
 [x] Component for Support with successful input validation and route
 [x] Component for Comments route (validation not neccessary)
 [x] Component for Review with all answers displayed
-[] Successful post to DB
+[x] Successful post to DB
 [x] Submission success page with button to reset and start over
 [x] Submission button brings user back to feelings page and clears
 [] Extra styling
